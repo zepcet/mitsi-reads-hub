@@ -13,7 +13,7 @@ const Navbar = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border">
-      <nav className="max-w-6xl mx-auto px-8 h-32 flex items-center justify-between">
+      <nav className="max-w-6xl mx-auto px-8 h-24 flex items-center justify-between">
         {/* Logo text only */}
         <Link to="/" className="shrink-0">
           <span className="font-serif text-4xl font-medium tracking-tight leading-none">mitsi<br />ppl.</span>
