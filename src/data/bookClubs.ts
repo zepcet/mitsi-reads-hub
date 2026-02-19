@@ -14,6 +14,28 @@ export interface BookClub {
 
 export const allClubs: BookClub[] = [
   {
+    id: 0,
+    slug: "all-fours",
+    title: "All Fours",
+    author: "Miranda July",
+    month: "February 2026",
+    genre: "Literary Fiction",
+    excerpt: "A woman in her forties sets off on a road trip and never quite arrives. A bold, strange, and deeply alive novel about desire, time, and reinvention.",
+    image: "https://images.unsplash.com/photo-1495640388908-05fa85288e61?w=800&q=80",
+    rating: 5,
+    body: [
+      "Our February pick was Miranda July's All Fours — and from the very first pages, we knew this one would stay with us. July has always been fearless, but this novel feels like her most vulnerable and fully realised work yet.",
+      "The unnamed narrator — a woman in her mid-forties, married, a mother — impulsively veers off the road during a planned cross-country drive and checks into a motel near her home. What follows is a story about the body, desire, time, and what it means to want things you're not supposed to want.",
+      "We spent a long time on the perimenopause sections, which July writes with a frankness that felt genuinely radical. For many in our group, it was the first time they'd read their own physical experience reflected back so clearly in fiction.",
+      "Some found the novel difficult — its logic is dreamlike, not linear. But most agreed that July earns the strangeness. By the end, it didn't feel strange at all. It felt necessary.",
+    ],
+    discussionHighlights: [
+      "\"I read the last fifty pages in one sitting. I couldn't stop.\"",
+      "\"July writes the female body in a way I've never encountered before.\"",
+      "\"Uncomfortable, funny, and completely alive. My favourite read in years.\"",
+    ],
+  },
+  {
     id: 1,
     slug: "normal-people",
     title: "Normal People",

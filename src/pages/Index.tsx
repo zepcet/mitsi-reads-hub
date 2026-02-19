@@ -47,7 +47,7 @@ const Index = () => {
           </div>
           <div className="flex flex-col justify-center md:pt-16">
             <p className="text-lg leading-relaxed text-muted-foreground font-sans-body mb-4">
-              mitsi ppl. is a book club built on the belief that reading is better together. We believe books are not just stories — they're invitations to understand the world and each other more deeply.
+              Your lifestyle concierge with curated moods & foods and items. A monthly book club with wines & bites.
             </p>
             <p className="text-lg leading-relaxed text-muted-foreground font-sans-body mb-8">
               Each month, we choose one book and gather — virtually and in person — to share what moved us, challenged us, and surprised us. No book degree required. Just curiosity.
