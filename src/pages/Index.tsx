@@ -68,7 +68,7 @@ const Index = () => {
       <section className="max-w-6xl mx-auto px-6 py-24">
         <div className="flex items-baseline justify-between mb-12">
           <h2 className="font-serif text-3xl md:text-4xl font-medium">Recent Reads</h2>
-          <Link to="/book-clubs" className="text-sm text-primary border-b border-primary pb-0.5 hover:text-primary/80 transition-colors">
+          <Link to="/book-clubs" className="text-sm text-foreground border-b border-foreground pb-0.5 hover:text-foreground/60 transition-colors">
             View all →
           </Link>
         </div>
