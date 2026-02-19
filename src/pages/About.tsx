@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import founderPhoto from "@/assets/founder.png";
+import mitsiLogo from "@/assets/mitsi-logo.jpg";
 
 const instagramPosts = [
   {
@@ -70,7 +71,7 @@ const About = () => {
         {/* Instagram grid */}
         <div className="mb-24 pb-24 border-b border-border">
           <div className="flex items-center gap-3 mb-8">
-            <img src={founderPhoto} alt="@mitsippl" className="w-9 h-9 rounded-full object-cover" />
+            <img src={mitsiLogo} alt="@mitsippl" className="w-9 h-9 rounded-full object-cover" />
             <a
               href="https://www.instagram.com/mitsippl/"
               target="_blank"
