@@ -8,6 +8,7 @@ import BookClubs from "./pages/BookClubs";
 import Subscriptions from "./pages/Subscriptions";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import BookClubPost from "./pages/BookClubPost";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -21,6 +22,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/book-clubs" element={<BookClubs />} />
+          <Route path="/book-clubs/:slug" element={<BookClubPost />} />
           <Route path="/subscriptions" element={<Subscriptions />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
