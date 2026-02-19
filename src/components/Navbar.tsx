@@ -38,7 +38,7 @@ const Navbar = () => {
             </Link>
           ))}
           <a
-            href="https://www.instagram.com"
+            href="https://www.instagram.com/mitsippl/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-foreground hover:text-primary transition-colors"
