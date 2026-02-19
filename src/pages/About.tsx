@@ -70,19 +70,19 @@ const About = () => {
 
         {/* Instagram grid */}
         <div className="mb-24 pb-24 border-b border-border">
-          <div className="flex items-center gap-3 mb-8">
-            <img src={mitsiLogo} alt="@mitsippl" className="w-9 h-9 rounded-full object-cover" />
+          <div className="flex items-center gap-4 mb-10">
+            <img src={mitsiLogo} alt="@mitsippl" className="w-14 h-14 rounded-full object-cover" />
             <a
               href="https://www.instagram.com/mitsippl/"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-sans-body text-sm font-medium hover:text-primary transition-colors"
+              className="font-sans-body text-base font-medium hover:text-primary transition-colors"
             >
               @mitsippl
             </a>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-1">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2">
             {instagramPosts.map((post) => (
               <a
                 key={post.id}
@@ -97,7 +97,7 @@ const About = () => {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/40 transition-colors duration-300 flex items-center justify-center">
-                  <p className="text-background text-xs font-sans-body px-3 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-3">
+                  <p className="text-background text-sm font-sans-body px-4 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-3">
                     {post.caption}
                   </p>
                 </div>
