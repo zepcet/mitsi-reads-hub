@@ -1,3 +1,4 @@
+import { Instagram } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import mitsiLogo from "@/assets/mitsi-logo.jpg";
@@ -31,7 +32,34 @@ const About = () => {
           </div>
         </div>
 
-        {/* CTA */}
+        {/* Instagram preview */}
+        <div className="mb-24 pb-24 border-b border-border">
+          <p className="text-xs tracking-widest uppercase text-muted-foreground mb-8 font-sans-body">Find me on Instagram</p>
+          <a
+            href="https://www.instagram.com/mitsippl/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-5 group"
+          >
+            <div className="w-20 h-20 rounded-full overflow-hidden border border-border shrink-0">
+              <img src={mitsiLogo} alt="Fatmagül on Instagram" className="w-full h-full object-cover" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <Instagram size={16} strokeWidth={1.5} className="text-muted-foreground" />
+                <span className="font-sans-body text-sm text-muted-foreground">@mitsippl</span>
+              </div>
+              <p className="font-serif text-2xl font-medium group-hover:text-primary transition-colors">
+                Follow along on Instagram →
+              </p>
+              <p className="text-sm text-muted-foreground font-sans-body mt-1">
+                Books, conversations & community moments.
+              </p>
+            </div>
+          </a>
+        </div>
+
+
         <div className="text-center py-16">
           <h2 className="font-serif text-4xl font-medium mb-4">Ready to join?</h2>
           <p className="text-muted-foreground mb-8 font-sans-body">
