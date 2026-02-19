@@ -59,12 +59,6 @@ const Index = () => {
               >
                 Join the club
               </Link>
-              <Link
-                to="/book-clubs"
-                className="border border-foreground text-foreground px-6 py-3 text-sm tracking-wide hover:bg-foreground hover:text-background transition-colors"
-              >
-                Our past reads
-              </Link>
             </div>
           </div>
         </div>
