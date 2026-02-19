@@ -15,11 +15,11 @@ const Navbar = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border">
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 shrink-0">
-          <div className="w-8 h-8 rounded-sm overflow-hidden">
+        <Link to="/" className="flex items-center gap-3 shrink-0">
+          <div className="w-12 h-12 rounded-sm overflow-hidden">
             <img src={mitsiLogo} alt="mitsi ppl." className="w-full h-full object-cover" />
           </div>
-          <span className="font-serif text-lg font-medium tracking-tight">mitsi ppl.</span>
+          <span className="font-serif text-2xl font-medium tracking-tight">mitsi ppl.</span>
         </Link>
 
         {/* Nav Links */}
