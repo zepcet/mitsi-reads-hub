@@ -109,7 +109,7 @@ const Checkout = () => {
                     </span>
                   </div>
                   <p className="text-sm text-muted-foreground mt-2 font-sans-body">
-                    7-day free trial included. Cancel anytime.
+                    Cancel anytime.
                   </p>
                 </div>
                 <p className="text-xs text-muted-foreground font-sans-body mb-8">
@@ -358,18 +358,14 @@ const Checkout = () => {
                     <span className="text-xs tracking-widest uppercase text-muted-foreground font-sans-body">Payment</span>
                     <span className="text-sm font-mono">•••• {form.cardNumber.slice(-4) || "4242"}</span>
                   </div>
-                  <div className="flex justify-between items-center px-5 py-4">
-                    <span className="text-xs tracking-widest uppercase text-muted-foreground font-sans-body">Free trial</span>
-                    <span className="text-sm font-sans-body text-primary font-medium">7 days — no charge today</span>
-                  </div>
                   <div className="flex justify-between items-center px-5 py-4 bg-muted/40">
-                    <span className="text-xs tracking-widest uppercase font-sans-body font-medium">Due after trial</span>
+                    <span className="text-xs tracking-widest uppercase font-sans-body font-medium">Total due today</span>
                     <span className="font-serif text-xl font-medium">${selectedPlan.price}/mo</span>
                   </div>
                 </div>
 
                 <p className="text-xs text-muted-foreground font-sans-body mb-6 leading-relaxed">
-                  By confirming, you agree to our Terms of Service. You won't be charged until your 7-day free trial ends. Cancel anytime before then.
+                  By confirming, you agree to our Terms of Service. Cancel anytime.
                 </p>
 
                 <div className="flex gap-4">
@@ -383,7 +379,7 @@ const Checkout = () => {
                     onClick={() => setStep(5)}
                     className="bg-primary text-primary-foreground px-8 py-3 text-sm tracking-wide hover:bg-primary/90 transition-colors inline-flex items-center gap-2"
                   >
-                    <Lock size={13} /> Start free trial
+                    <Lock size={13} /> Confirm & subscribe
                   </button>
                 </div>
               </div>
@@ -404,7 +400,6 @@ const Checkout = () => {
                 <p className="text-muted-foreground font-sans-body text-sm mb-10">
                   A confirmation has been sent to{" "}
                   <span className="text-foreground">{form.email || "your email"}</span>.
-                  Your trial runs for 7 days — no charge until then.
                 </p>
 
                 <div className="border border-border p-6 text-left max-w-sm mx-auto mb-10">
@@ -469,12 +464,8 @@ const Checkout = () => {
                   ))}
                 </div>
                 <div className="border-t border-border mt-5 pt-4">
-                  <div className="flex justify-between text-xs font-sans-body text-muted-foreground mb-1">
-                    <span>Trial period</span>
-                    <span className="text-primary font-medium">Free — 7 days</span>
-                  </div>
                   <div className="flex justify-between text-xs font-sans-body">
-                    <span>Then billed</span>
+                    <span>Billed monthly</span>
                     <span className="font-medium">${selectedPlan.price}/mo</span>
                   </div>
                 </div>
