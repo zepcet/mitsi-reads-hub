@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import mitsiLogo from "@/assets/mitsi-logo.jpg";
+import founderPhoto from "@/assets/founder.png";
 
 const instagramPosts = [
   {
@@ -50,7 +50,7 @@ const About = () => {
         {/* Founder */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24 pb-24 border-b border-border">
           <div className="aspect-square overflow-hidden bg-muted max-w-sm">
-            <img src={mitsiLogo} alt="mitsi ppl logo" className="w-full h-full object-cover" />
+            <img src={founderPhoto} alt="Fatmagül" className="w-full h-full object-cover" />
           </div>
           <div>
             <p className="text-xs tracking-widest uppercase text-muted-foreground mb-4 font-sans-body">The founder</p>
@@ -70,7 +70,7 @@ const About = () => {
         {/* Instagram grid */}
         <div className="mb-24 pb-24 border-b border-border">
           <div className="flex items-center gap-3 mb-8">
-            <img src={mitsiLogo} alt="@mitsippl" className="w-9 h-9 rounded-full object-cover" />
+            <img src={founderPhoto} alt="@mitsippl" className="w-9 h-9 rounded-full object-cover" />
             <a
               href="https://www.instagram.com/mitsippl/"
               target="_blank"
