@@ -12,7 +12,7 @@ const Navbar = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border">
-      <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <nav className="max-w-6xl mx-auto px-8 h-24 flex items-center justify-between">
         {/* Logo text only */}
         <Link to="/" className="shrink-0">
           <span className="font-serif text-4xl font-medium tracking-tight">mitsi ppl.</span>
@@ -24,7 +24,7 @@ const Navbar = () => {
             <Link
               key={link.href}
               to={link.href}
-              className={`text-sm font-sans-body tracking-wide transition-colors hover:text-primary ${
+              className={`text-base font-sans-body tracking-wide transition-colors hover:text-primary ${
                 location.pathname === link.href
                   ? "text-primary border-b border-primary pb-0.5"
                   : "text-foreground"
@@ -40,7 +40,7 @@ const Navbar = () => {
             className="text-foreground hover:text-primary transition-colors"
             aria-label="Instagram"
           >
-            <Instagram size={18} strokeWidth={1.5} />
+            <Instagram size={22} strokeWidth={1.5} />
           </a>
         </div>
       </nav>
