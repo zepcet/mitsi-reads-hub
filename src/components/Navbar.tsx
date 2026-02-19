@@ -16,7 +16,7 @@ const Navbar = () => {
       <nav className="max-w-6xl mx-auto px-8 h-24 flex items-center justify-between">
         {/* Logo text only */}
         <Link to="/" className="shrink-0">
-          <span className="font-serif text-4xl font-medium tracking-tight">mitsi ppl.</span>
+          <span className="font-serif text-4xl font-medium tracking-tight leading-none">mitsi<br />ppl.</span>
         </Link>
 
         {/* Nav Links */}
