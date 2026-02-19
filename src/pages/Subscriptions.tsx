@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Check } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -50,6 +51,8 @@ const plans = [
 ];
 
 const Subscriptions = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -101,6 +104,7 @@ const Subscriptions = () => {
               </ul>
 
               <button
+                onClick={() => navigate(`/checkout?plan=${plan.name}`)}
                 className={`w-full py-3 text-sm tracking-wide transition-colors ${
                   plan.highlighted
                     ? "bg-primary-foreground text-primary hover:bg-primary-foreground/90"
