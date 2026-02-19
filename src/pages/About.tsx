@@ -18,7 +18,7 @@ const About = () => {
           </div>
           <div>
             <p className="text-xs tracking-widest uppercase text-muted-foreground mb-4 font-sans-body">The founder</p>
-            <h2 className="font-serif text-3xl font-medium mb-6">Hello, I'm Mitsi.</h2>
+            <h2 className="font-serif text-3xl font-medium mb-6">Hello, I'm Fatmagül.</h2>
             <p className="text-muted-foreground leading-relaxed font-sans-body mb-4">
               I started mitsi ppl. because I missed the feeling of finishing a book and immediately wanting to talk about it with someone who cared. I'd been reading alone for too long.
             </p>
