@@ -12,10 +12,10 @@ const Navbar = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border">
-      <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <nav className="max-w-6xl mx-auto px-6 h-28 flex items-center justify-between">
         {/* Logo text only */}
         <Link to="/" className="shrink-0">
-          <span className="font-serif text-2xl font-medium tracking-tight">mitsi ppl.</span>
+          <span className="font-serif text-7xl font-medium tracking-tight">mitsi ppl.</span>
         </Link>
 
         {/* Nav Links */}
