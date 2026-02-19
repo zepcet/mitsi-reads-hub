@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import heroImage from "@/assets/hero-books.jpg";
 
 const bookClubs = [
   {
@@ -35,23 +34,25 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Hero */}
-      <section className="pt-16">
-        <div className="relative h-[85vh] overflow-hidden">
-          <img
-            src={heroImage}
-            alt="Books and reading"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-foreground/20" />
-          <div className="absolute inset-0 flex flex-col justify-end p-10 md:p-16 max-w-6xl mx-auto left-0 right-0">
-            <p className="text-primary-foreground text-sm tracking-widest uppercase mb-4 font-sans-body">
+      {/* Hero — text only, Seen Library style */}
+      <section className="pt-32 pb-20 px-6 max-w-6xl mx-auto border-b border-border">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+          <div>
+            <p className="text-xs tracking-widest uppercase text-muted-foreground mb-6 font-sans-body">
               A book club for curious people
             </p>
-            <h1 className="font-serif text-5xl md:text-7xl font-medium text-primary-foreground leading-tight max-w-2xl">
-              Read together.<br />Think deeper.
+            <h1 className="font-serif text-6xl md:text-8xl font-medium leading-tight">
+              We read.<br />We talk.<br />We connect.
             </h1>
-            <div className="flex gap-4 mt-8">
+          </div>
+          <div className="flex flex-col justify-center md:pt-16">
+            <p className="text-lg leading-relaxed text-muted-foreground font-sans-body mb-4">
+              mitsi ppl. is a book club built on the belief that reading is better together. We believe books are not just stories — they're invitations to understand the world and each other more deeply.
+            </p>
+            <p className="text-lg leading-relaxed text-muted-foreground font-sans-body mb-8">
+              Each month, we choose one book and gather — virtually and in person — to share what moved us, challenged us, and surprised us. No book degree required. Just curiosity.
+            </p>
+            <div className="flex gap-4">
               <Link
                 to="/subscriptions"
                 className="bg-primary text-primary-foreground px-6 py-3 text-sm tracking-wide hover:bg-primary/90 transition-colors"
@@ -60,7 +61,7 @@ const Index = () => {
               </Link>
               <Link
                 to="/book-clubs"
-                className="border border-primary-foreground text-primary-foreground px-6 py-3 text-sm tracking-wide hover:bg-primary-foreground/10 transition-colors"
+                className="border border-foreground text-foreground px-6 py-3 text-sm tracking-wide hover:bg-foreground hover:text-background transition-colors"
               >
                 Our past reads
               </Link>
