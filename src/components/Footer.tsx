@@ -18,7 +18,7 @@ const Footer = () => {
         </div>
         <div className="flex flex-col gap-3">
           <a
-            href="https://www.instagram.com"
+            href="https://www.instagram.com/mitsippl/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-sm hover:text-primary transition-colors"
