@@ -35,7 +35,7 @@ const Index = () => {
       <Navbar />
 
       {/* Hero — text only, Seen Library style */}
-      <section className="pt-44 pb-20 px-6 max-w-6xl mx-auto border-b border-border">
+      <section className="pt-32 pb-20 px-6 max-w-6xl mx-auto border-b border-border">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
           <div>
             <p className="text-xs tracking-widest uppercase text-muted-foreground mb-6 font-sans-body">
