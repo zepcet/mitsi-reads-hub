@@ -8,6 +8,7 @@ const Navbar = () => {
     { href: "/subscriptions", label: "Subscriptions" },
     { href: "/book-clubs", label: "Book Clubs" },
     { href: "/about", label: "About" },
+    { href: "/contact", label: "Contact" },
   ];
 
   return (
