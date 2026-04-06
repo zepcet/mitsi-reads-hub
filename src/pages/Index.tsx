@@ -65,7 +65,7 @@ const Index = () => {
       </section>
 
       {/* Video Section */}
-      <section className="w-full px-0 py-20 border-b border-border">
+      <section className="max-w-[90rem] mx-auto px-6 py-20 border-b border-border">
         <div className="aspect-video bg-muted rounded-sm overflow-hidden flex items-center justify-center">
           <p className="text-muted-foreground font-sans-body text-sm tracking-widest uppercase">
             Video coming soon
