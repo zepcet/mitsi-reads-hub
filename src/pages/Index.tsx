@@ -65,8 +65,8 @@ const Index = () => {
       </section>
 
       {/* Video Section */}
-      <section className="w-full px-0 py-20 border-b border-border">
-        <div className="bg-muted overflow-hidden flex items-center justify-center py-20">
+      <section className="w-full border-b border-border">
+        <div className="bg-muted overflow-hidden flex items-center justify-center" style={{ minHeight: '60vh' }}>
           <p className="text-muted-foreground font-sans-body text-sm tracking-widest uppercase">
             Video coming soon
           </p>
