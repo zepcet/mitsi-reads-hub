@@ -82,10 +82,6 @@ const Index = () => {
             { src: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80", alt: "Reading together" },
             { src: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=600&q=80", alt: "Wine and books" },
             { src: "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=600&q=80", alt: "Community dinner" },
-            { src: "https://images.unsplash.com/photo-1511988617509-a57c8a288659?w=600&q=80", alt: "Discussion night" },
-            { src: "https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&q=80", alt: "Friends at book club" },
-            { src: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=600&q=80", alt: "Cozy reading" },
-            { src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80", alt: "Team meeting" },
           ].map((photo, i) => (
             <div key={i} className="aspect-square overflow-hidden bg-muted group cursor-pointer">
               <img
