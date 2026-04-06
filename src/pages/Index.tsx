@@ -65,7 +65,7 @@ const Index = () => {
       </section>
 
       {/* Video Section */}
-      <section className="w-full px-0 py-20 border-b border-border">
+      <section className="max-w-[90rem] mx-auto px-6 py-20 border-b border-border">
         <div className="aspect-video bg-muted rounded-sm overflow-hidden flex items-center justify-center">
           <p className="text-muted-foreground font-sans-body text-sm tracking-widest uppercase">
             Video coming soon
@@ -76,7 +76,7 @@ const Index = () => {
       {/* Book Club Stories */}
       <section className="max-w-6xl mx-auto px-6 py-24 border-b border-border">
         <h2 className="font-serif text-3xl md:text-4xl font-medium mb-12">Book Club Stories</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-4 md:grid-cols-8 gap-3">
           {[
             { src: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80", alt: "Book club gathering" },
             { src: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80", alt: "Reading together" },
