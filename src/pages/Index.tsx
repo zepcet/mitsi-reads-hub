@@ -76,7 +76,7 @@ const Index = () => {
       {/* Book Club Stories */}
       <section className="max-w-6xl mx-auto px-6 py-24 border-b border-border">
         <h2 className="font-serif text-3xl md:text-4xl font-medium mb-12">Book Club Stories</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-4 md:grid-cols-8 gap-3">
           {[
             { src: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80", alt: "Book club gathering" },
             { src: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80", alt: "Reading together" },
