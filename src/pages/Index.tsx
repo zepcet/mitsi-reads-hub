@@ -67,10 +67,16 @@ const Index = () => {
 
       {/* Video Section */}
       <section className="w-full border-b border-border">
-        <div className="bg-muted overflow-hidden flex items-center justify-center" style={{ minHeight: '60vh' }}>
-          <p className="text-muted-foreground font-sans-body text-sm tracking-widest uppercase">
-            Video coming soon
-          </p>
+        <div className="overflow-hidden flex items-center justify-center bg-black">
+          <video
+            className="w-full h-auto"
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
+            <source src="/videos/hero-video.mp4" type="video/mp4" />
+          </video>
         </div>
       </section>
 
