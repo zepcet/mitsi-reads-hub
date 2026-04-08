@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
+import allFoursCover from "@/assets/all-fours-cover.png";
 import Footer from "@/components/Footer";
 
 const bookClubs = [
@@ -9,7 +10,7 @@ const bookClubs = [
     author: "Sally Rooney",
     month: "January 2025",
     excerpt: "We explored themes of class, intimacy, and the quiet ways people shape each other's lives.",
-    image: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=600&q=80",
+    image: allFoursCover,
   },
   {
     id: 2,
