@@ -65,22 +65,24 @@ const Index = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {bookClubs.map((club) => (
-            <article key={club.id} className="group cursor-pointer">
-              <div className="aspect-[4/3] overflow-hidden bg-muted mb-4">
-                <img
-                  src={club.image}
-                  alt={club.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <p className="text-xs text-muted-foreground tracking-widest uppercase mb-2 font-sans-body">
-                {club.month}
-              </p>
-              <h3 className="font-serif text-xl font-medium mb-1">{club.title}</h3>
-              <p className="text-muted-foreground text-sm mb-3 font-sans-body">{club.author}</p>
-              <p className="text-sm leading-relaxed text-muted-foreground font-sans-body">{club.excerpt}</p>
-            </article>
+          {recentReads.map((club) => (
+            <Link to={`/book-clubs/${club.slug}`} key={club.id} className="group cursor-pointer">
+              <article>
+                <div className="aspect-[4/3] overflow-hidden bg-muted mb-4">
+                  <img
+                    src={club.image}
+                    alt={club.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <p className="text-xs text-muted-foreground tracking-widest uppercase mb-2 font-sans-body">
+                  {club.month}
+                </p>
+                <h3 className="font-serif text-xl font-medium mb-1">{club.title}</h3>
+                <p className="text-muted-foreground text-sm mb-3 font-sans-body">{club.author}</p>
+                <p className="text-sm leading-relaxed text-muted-foreground font-sans-body">{club.excerpt}</p>
+              </article>
+            </Link>
           ))}
         </div>
       </section>
