@@ -1,37 +1,9 @@
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
-import allFoursCover from "@/assets/all-fours-cover.png";
-import mitsi01 from "@/assets/mitsi-01.png";
-import mitsi02 from "@/assets/mitsi-02.png";
-import mitsi03 from "@/assets/mitsi-03.png";
 import Footer from "@/components/Footer";
+import { allClubs } from "@/data/bookClubs";
 
-const bookClubs = [
-    {
-      id: 1,
-      title: "All Fours",
-      author: "Miranda July",
-      month: "February 2025",
-      excerpt: "Slip into the world of a 45-year-old, who has just left her husband and hit the road from LA to NYC — a New York Times bestseller.",
-      image: mitsi01,
-    },
-    {
-      id: 2,
-      title: "The Wedding People",
-      author: "Alison Espach",
-      month: "March 2025",
-      excerpt: "A gripping conversation about love, loneliness, and the unexpected connections we make when we least expect them.",
-      image: mitsi02,
-    },
-    {
-      id: 3,
-      title: "Mitsi Book Club",
-      author: "at sitsstudio",
-      month: "January 2025",
-      excerpt: "Our very first gathering — wine, candles, and a beautiful evening of conversation that started it all.",
-      image: mitsi03,
-    },
-  ];
+const recentReads = allClubs.slice(0, 3);
 
 const Index = () => {
   return (
@@ -93,22 +65,24 @@ const Index = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {bookClubs.map((club) => (
-            <article key={club.id} className="group cursor-pointer">
-              <div className="aspect-[4/3] overflow-hidden bg-muted mb-4">
-                <img
-                  src={club.image}
-                  alt={club.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <p className="text-xs text-muted-foreground tracking-widest uppercase mb-2 font-sans-body">
-                {club.month}
-              </p>
-              <h3 className="font-serif text-xl font-medium mb-1">{club.title}</h3>
-              <p className="text-muted-foreground text-sm mb-3 font-sans-body">{club.author}</p>
-              <p className="text-sm leading-relaxed text-muted-foreground font-sans-body">{club.excerpt}</p>
-            </article>
+          {recentReads.map((club) => (
+            <Link to={`/book-clubs/${club.slug}`} key={club.id} className="group cursor-pointer">
+              <article>
+                <div className="aspect-[4/3] overflow-hidden bg-muted mb-4">
+                  <img
+                    src={club.image}
+                    alt={club.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <p className="text-xs text-muted-foreground tracking-widest uppercase mb-2 font-sans-body">
+                  {club.month}
+                </p>
+                <h3 className="font-serif text-xl font-medium mb-1">{club.title}</h3>
+                <p className="text-muted-foreground text-sm mb-3 font-sans-body">{club.author}</p>
+                <p className="text-sm leading-relaxed text-muted-foreground font-sans-body">{club.excerpt}</p>
+              </article>
+            </Link>
           ))}
         </div>
       </section>
