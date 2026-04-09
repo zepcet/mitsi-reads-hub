@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import allFoursCover from "@/assets/all-fours-cover.png";
+import mitsi01 from "@/assets/mitsi-01.png";
+import mitsi02 from "@/assets/mitsi-02.png";
+import mitsi03 from "@/assets/mitsi-03.png";
 import Footer from "@/components/Footer";
 
 const bookClubs = [
