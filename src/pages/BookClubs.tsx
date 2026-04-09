@@ -19,40 +19,29 @@ const BookClubs = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {allClubs.map((club, index) => (
-            <article
-              key={club.id}
-              className={`group flex gap-6 ${index % 2 === 1 ? "md:mt-12" : ""}`}
-            >
-              <Link to={`/book-clubs/${club.slug}`} className="w-36 h-48 shrink-0 overflow-hidden bg-muted block">
-                <img
-                  src={club.image}
-                  alt={club.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </Link>
-              <div className="flex flex-col justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {allClubs.map((club) => (
+            <Link to={`/book-clubs/${club.slug}`} key={club.id} className="group cursor-pointer">
+              <article>
+                <div className="aspect-[4/3] overflow-hidden bg-muted mb-4">
+                  <img
+                    src={club.image}
+                    alt={club.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
                 <p className="text-xs text-muted-foreground tracking-widest uppercase mb-2 font-sans-body">
                   {club.month} · {club.genre}
                 </p>
-                <Link to={`/book-clubs/${club.slug}`}>
-                  <h2 className="font-serif text-xl font-medium mb-1 hover:text-primary transition-colors">
-                    {club.title}
-                  </h2>
-                </Link>
+                <h2 className="font-serif text-xl font-medium mb-1 group-hover:text-primary transition-colors">
+                  {club.title}
+                </h2>
                 <p className="text-muted-foreground text-sm mb-3 font-sans-body">{club.author}</p>
                 <p className="text-sm leading-relaxed text-muted-foreground font-sans-body line-clamp-3">
                   {club.excerpt}
                 </p>
-                <Link
-                  to={`/book-clubs/${club.slug}`}
-                  className="mt-4 text-xs text-primary font-sans-body tracking-wide hover:underline"
-                >
-                  Read more →
-                </Link>
-              </div>
-            </article>
+              </article>
+            </Link>
           ))}
         </div>
       </div>
