@@ -116,7 +116,7 @@ const Index = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {bookClubs.map((club) => (
             <article key={club.id} className="group cursor-pointer">
-              <div className="aspect-[4/3] overflow-hidden bg-muted mb-4">
+              <div className="aspect-square overflow-hidden bg-muted mb-4">
                 <img
                   src={club.image}
                   alt={club.title}
