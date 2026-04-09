@@ -25,8 +25,8 @@ const BookClubs = () => {
               key={club.id}
               className={`group flex gap-6 ${index % 2 === 1 ? "md:mt-12" : ""}`}
             >
-              <Link to={`/book-clubs/${club.slug}`} className="w-52 shrink-0 overflow-hidden bg-muted block">
-                <div className="aspect-[4/3] overflow-hidden">
+              <Link to={`/book-clubs/${club.slug}`} className="w-52 shrink-0 overflow-hidden block">
+                <div className="aspect-[4/3] overflow-hidden bg-muted">
                   <img
                     src={club.image}
                     alt={club.title}
