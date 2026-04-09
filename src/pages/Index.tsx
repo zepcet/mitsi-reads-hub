@@ -83,29 +83,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Book Club Stories */}
-      <section className="max-w-6xl mx-auto px-6 py-24 border-b border-border">
-        <h2 className="font-serif text-3xl md:text-4xl font-medium mb-12">Book Club Stories</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {[
-            { src: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80", alt: "Book club gathering" },
-            { src: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80", alt: "Reading together" },
-            { src: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=600&q=80", alt: "Wine and books" },
-            { src: "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=600&q=80", alt: "Community dinner" },
-          ].map((photo, i) => (
-            <div key={i} className="aspect-square overflow-hidden bg-muted group cursor-pointer">
-              <img
-                src={photo.src}
-                alt={photo.alt}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Recent Book Clubs */}
-      <section className="max-w-6xl mx-auto px-6 py-24">
+      <section className="max-w-6xl mx-auto px-6 py-24 border-b border-border">
         <div className="flex items-baseline justify-between mb-12">
           <h2 className="font-serif text-3xl md:text-4xl font-medium">Recent Reads</h2>
           <Link to="/book-clubs" className="text-sm text-foreground border-b border-foreground pb-0.5 hover:text-foreground/60 transition-colors">
@@ -130,6 +109,27 @@ const Index = () => {
               <p className="text-muted-foreground text-sm mb-3 font-sans-body">{club.author}</p>
               <p className="text-sm leading-relaxed text-muted-foreground font-sans-body">{club.excerpt}</p>
             </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Book Club Stories */}
+      <section className="max-w-6xl mx-auto px-6 py-24">
+        <h2 className="font-serif text-3xl md:text-4xl font-medium mb-12">Book Club Stories</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          {[
+            { src: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80", alt: "Book club gathering" },
+            { src: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80", alt: "Reading together" },
+            { src: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=600&q=80", alt: "Wine and books" },
+            { src: "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=600&q=80", alt: "Community dinner" },
+          ].map((photo, i) => (
+            <div key={i} className="aspect-square overflow-hidden bg-muted group cursor-pointer">
+              <img
+                src={photo.src}
+                alt={photo.alt}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
           ))}
         </div>
       </section>
