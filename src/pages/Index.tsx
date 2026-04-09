@@ -7,31 +7,31 @@ import mitsi03 from "@/assets/mitsi-03.png";
 import Footer from "@/components/Footer";
 
 const bookClubs = [
-  {
-    id: 1,
-    title: "Normal People",
-    author: "Sally Rooney",
-    month: "January 2025",
-    excerpt: "We explored themes of class, intimacy, and the quiet ways people shape each other's lives.",
-    image: allFoursCover,
-  },
-  {
-    id: 2,
-    title: "Babel",
-    author: "R.F. Kuang",
-    month: "February 2025",
-    excerpt: "A gripping conversation about language, empire, and the cost of belonging to institutions that don't truly belong to you.",
-    image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=80",
-  },
-  {
-    id: 3,
-    title: "Tomorrow, and Tomorrow, and Tomorrow",
-    author: "Gabrielle Zevin",
-    month: "March 2025",
-    excerpt: "Love, creativity, and collaboration across decades. One of our most spirited discussions yet.",
-    image: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=600&q=80",
-  },
-];
+    {
+      id: 1,
+      title: "All Fours",
+      author: "Miranda July",
+      month: "February 2025",
+      excerpt: "Slip into the world of a 45-year-old, who has just left her husband and hit the road from LA to NYC — a New York Times bestseller.",
+      image: mitsi01,
+    },
+    {
+      id: 2,
+      title: "The Wedding People",
+      author: "Alison Espach",
+      month: "March 2025",
+      excerpt: "A gripping conversation about love, loneliness, and the unexpected connections we make when we least expect them.",
+      image: mitsi02,
+    },
+    {
+      id: 3,
+      title: "Mitsi Book Club",
+      author: "at sitsstudio",
+      month: "January 2025",
+      excerpt: "Our very first gathering — wine, candles, and a beautiful evening of conversation that started it all.",
+      image: mitsi03,
+    },
+  ];
 
 const Index = () => {
   return (
