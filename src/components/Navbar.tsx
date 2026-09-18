@@ -112,13 +112,6 @@ const Navbar = () => {
                 >
                   Create account
                 </Link>
-                <Link
-                  to="/admin"
-                  onClick={() => setMenuOpen(false)}
-                  className="block px-4 py-2.5 text-sm font-sans-body hover:bg-muted transition-colors border-t border-border"
-                >
-                  Admin login
-                </Link>
               </>
             )}
           </div>
