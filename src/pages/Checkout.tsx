@@ -1,19 +1,22 @@
 import { useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import { Check, ChevronRight, CreditCard, Lock, ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 const plans = [
-  { name: "Reader", price: "9" },
-  { name: "Member", price: "19" },
-  { name: "Collector", price: "39" },
+  { name: "Reader", price: "9", plan: "reader" },
+  { name: "Member", price: "19", plan: "member" },
+  { name: "Collector", price: "39", plan: "collector" },
 ];
 
 const steps = ["Your plan", "Account", "Payment", "Confirm"];
 
 const Checkout = () => {
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   const planParam = searchParams.get("plan") || "Member";
   const selectedPlan = plans.find((p) => p.name === planParam) || plans[1];
 
@@ -28,9 +31,82 @@ const Checkout = () => {
     cvc: "123",
     nameOnCard: "",
   });
+  const [submitting, setSubmitting] = useState(false);
+  // Whether the account created during checkout still needs email confirmation
+  // before the user can sign in.
+  const [needsConfirm, setNeedsConfirm] = useState(false);
 
   const update = (field: string, value: string) =>
     setForm((prev) => ({ ...prev, [field]: value }));
+
+  // Step 2 → create a real auth account (profile auto-created by trigger).
+  const handleCreateAccount = async () => {
+    if (!form.firstName || !form.lastName || !form.email || form.password.length < 8) {
+      toast.error("Please complete all account fields (password min. 8 characters).");
+      return;
+    }
+
+    setSubmitting(true);
+    const { data, error } = await supabase.auth.signUp({
+      email: form.email,
+      password: form.password,
+      options: {
+        data: {
+          first_name: form.firstName,
+          last_name: form.lastName,
+        },
+        emailRedirectTo: window.location.origin,
+      },
+    });
+    setSubmitting(false);
+
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
+
+    // With email confirmation on (default), session is null until the user
+    // verifies their address. We still proceed with mock payment.
+    if (data.session) {
+      setNeedsConfirm(false);
+      // Immediately reflect the chosen plan on the freshly created profile.
+      await supabase
+        .from("profiles")
+        .update({
+          subscription_plan: selectedPlan.plan,
+          subscription_type: "individual",
+          subscription_status: "active",
+          updated_at: new Date().toISOString(),
+        })
+        .eq("id", data.user?.id);
+    } else {
+      setNeedsConfirm(true);
+      toast.success("Account created — check your email to confirm.");
+    }
+
+    setStep(3);
+  };
+
+  // Step 4 → finalize the mock subscription.
+  const handleConfirm = async () => {
+    setSubmitting(true);
+
+    const { data: sessionData } = await supabase.auth.getSession();
+    if (sessionData.session && sessionData.user) {
+      await supabase
+        .from("profiles")
+        .update({
+          subscription_plan: selectedPlan.plan,
+          subscription_type: "individual",
+          subscription_status: "active",
+          updated_at: new Date().toISOString(),
+        })
+        .eq("id", sessionData.user.id);
+    }
+
+    setSubmitting(false);
+    setStep(5);
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -199,10 +275,11 @@ const Checkout = () => {
                     Back
                   </button>
                   <button
-                    onClick={() => setStep(3)}
-                    className="bg-primary text-primary-foreground px-8 py-3 text-sm tracking-wide hover:bg-primary/90 transition-colors inline-flex items-center gap-2"
+                    onClick={handleCreateAccount}
+                    disabled={submitting}
+                    className="bg-primary text-primary-foreground px-8 py-3 text-sm tracking-wide hover:bg-primary/90 transition-colors inline-flex items-center gap-2 disabled:opacity-50"
                   >
-                    Continue <ChevronRight size={14} />
+                    {submitting ? "Creating…" : "Continue"} <ChevronRight size={14} />
                   </button>
                 </div>
               </div>
@@ -376,10 +453,11 @@ const Checkout = () => {
                     Back
                   </button>
                   <button
-                    onClick={() => setStep(5)}
-                    className="bg-primary text-primary-foreground px-8 py-3 text-sm tracking-wide hover:bg-primary/90 transition-colors inline-flex items-center gap-2"
+                    onClick={handleConfirm}
+                    disabled={submitting}
+                    className="bg-primary text-primary-foreground px-8 py-3 text-sm tracking-wide hover:bg-primary/90 transition-colors inline-flex items-center gap-2 disabled:opacity-50"
                   >
-                    <Lock size={13} /> Confirm & subscribe
+                    {submitting ? "Processing…" : (<><Lock size={13} /> Confirm & subscribe</>)}
                   </button>
                 </div>
               </div>
@@ -402,6 +480,16 @@ const Checkout = () => {
                   <span className="text-foreground">{form.email || "your email"}</span>.
                 </p>
 
+                {needsConfirm && (
+                  <div className="border border-border p-5 mb-6 max-w-md mx-auto text-left">
+                    <p className="text-sm font-sans-body mb-1">One more step</p>
+                    <p className="text-xs text-muted-foreground font-sans-body leading-relaxed">
+                      We sent a verification link to your email. Click it to activate your
+                      account, then sign in to access your member panel.
+                    </p>
+                  </div>
+                )}
+
                 <div className="border border-border p-6 text-left max-w-sm mx-auto mb-10">
                   <p className="text-xs tracking-widest uppercase text-muted-foreground font-sans-body mb-4">
                     What happens next
@@ -421,12 +509,20 @@ const Checkout = () => {
                   </ul>
                 </div>
 
-                <Link
-                  to="/book-clubs"
-                  className="inline-block bg-primary text-primary-foreground px-8 py-3 text-sm tracking-wide hover:bg-primary/90 transition-colors"
-                >
-                  Explore book clubs
-                </Link>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <Link
+                    to={needsConfirm ? "/login" : "/account"}
+                    className="inline-block bg-primary text-primary-foreground px-8 py-3 text-sm tracking-wide hover:bg-primary/90 transition-colors"
+                  >
+                    {needsConfirm ? "Go to sign in" : "Open member panel"}
+                  </Link>
+                  <Link
+                    to="/book-clubs"
+                    className="inline-block border border-foreground px-8 py-3 text-sm tracking-wide hover:bg-foreground hover:text-background transition-colors"
+                  >
+                    Explore book clubs
+                  </Link>
+                </div>
               </div>
             )}
           </div>
