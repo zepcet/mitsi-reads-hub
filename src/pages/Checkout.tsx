@@ -93,16 +93,17 @@ const Checkout = () => {
     setSubmitting(true);
 
     const { data: sessionData } = await supabase.auth.getSession();
-    if (sessionData.session && sessionData.user) {
+    const session = sessionData.session;
+    if (session) {
       await supabase
         .from("profiles")
         .update({
-          subscription_plan: selectedPlan.plan,
+          subscription_plan: selectedPlan.plan as Profile["subscription_plan"],
           subscription_type: "individual",
           subscription_status: "active",
           updated_at: new Date().toISOString(),
         })
-        .eq("id", sessionData.user.id);
+        .eq("id", session.user.id);
     }
 
     setSubmitting(false);
