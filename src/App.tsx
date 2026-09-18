@@ -23,6 +23,7 @@ import Profile from "./pages/account/Profile";
 import Subscription from "./pages/account/Subscription";
 import Reading from "./pages/account/Reading";
 import Content from "./pages/account/Content";
+import Admin from "./pages/Admin";
 
 const queryClient = new QueryClient();
 
@@ -45,6 +46,7 @@ const App = () => (
             <Route path="/signup" element={<Signup />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="/admin" element={<Admin />} />
 
             {/* Protected member panel */}
             <Route element={<ProtectedRoute />}>
