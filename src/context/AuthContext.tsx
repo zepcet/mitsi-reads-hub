@@ -67,6 +67,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       setUser(s?.user ?? null);
       if (s?.user) {
         await fetchProfile(s.user.id);
+        await fetchRole(s.user.id);
       }
       setLoading(false);
     });
@@ -77,8 +78,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       setUser(s?.user ?? null);
       if (s?.user) {
         await fetchProfile(s.user.id);
+        await fetchRole(s.user.id);
       } else {
         setProfile(null);
+        setIsAdmin(false);
       }
       setLoading(false);
     });
@@ -87,16 +90,17 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       mounted = false;
       sub.subscription.unsubscribe();
     };
-  }, [fetchProfile]);
+  }, [fetchProfile, fetchRole]);
 
   const signOut = useCallback(async () => {
     await supabase.auth.signOut();
     setProfile(null);
+    setIsAdmin(false);
   }, []);
 
   return (
     <AuthContext.Provider
-      value={{ session, user, profile, loading, signOut, refreshProfile }}
+      value={{ session, user, profile, isAdmin, loading, signOut, refreshProfile }}
     >
       {children}
     </AuthContext.Provider>
