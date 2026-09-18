@@ -83,7 +83,7 @@ const Index = () => {
             { src: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=600&q=80", alt: "Wine and books" },
             { src: "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=600&q=80", alt: "Community dinner" },
           ].map((photo, i) => (
-            <div key={i} className="aspect-square overflow-hidden bg-muted group cursor-pointer">
+            <div key={i} className="aspect-[9/16] overflow-hidden bg-muted group cursor-pointer">
               <img
                 src={photo.src}
                 alt={photo.alt}
