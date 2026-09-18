@@ -9,7 +9,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const { user, profile, signOut } = useAuth();
+  const { user, profile, isAdmin, signOut } = useAuth();
 
   const navLinks = [
     { href: "/subscriptions", label: "Subscriptions" },
@@ -31,72 +31,101 @@ const Navbar = () => {
     navigate("/");
   };
 
-  const AccountBlock = () => {
-    if (!user) {
-      return (
-        <Link
-          to="/login"
-          className="inline-flex items-center gap-1.5 text-base font-sans-body tracking-wide text-foreground hover:text-primary transition-colors"
-        >
-          <User size={17} strokeWidth={1.5} />
-          <span className="hidden lg:inline">Sign in</span>
-        </Link>
-      );
-    }
-
-    return (
-      <div className="relative">
-        <button
-          onClick={() => setMenuOpen((v) => !v)}
-          className="flex items-center gap-2 hover:text-primary transition-colors"
-          aria-label="Account menu"
-        >
-          <span className="w-8 h-8 bg-primary text-primary-foreground flex items-center justify-center text-xs font-sans-body font-medium">
+  const AccountBlock = () => (
+    <div className="relative">
+      <button
+        onClick={() => setMenuOpen((v) => !v)}
+        className="flex items-center hover:text-primary transition-colors"
+        aria-label="Account"
+      >
+        {user ? (
+          <span className="w-9 h-9 bg-primary text-primary-foreground flex items-center justify-center text-xs font-sans-body font-medium">
             {initials}
           </span>
-        </button>
-
-        {menuOpen && (
-          <>
-            <div
-              className="fixed inset-0 z-40"
-              onClick={() => setMenuOpen(false)}
-            />
-            <div className="absolute right-0 top-11 z-50 w-48 bg-background border border-border shadow-sm">
-              <div className="px-4 py-3 border-b border-border">
-                <p className="text-sm font-sans-body font-medium truncate">
-                  {profile?.first_name} {profile?.last_name}
-                </p>
-                <p className="text-xs text-muted-foreground font-sans-body truncate">
-                  {user.email}
-                </p>
-              </div>
-              <Link
-                to="/account"
-                onClick={() => setMenuOpen(false)}
-                className="block px-4 py-2.5 text-sm font-sans-body hover:bg-muted transition-colors"
-              >
-                Member panel
-              </Link>
-              <Link
-                to="/account/subscription"
-                onClick={() => setMenuOpen(false)}
-                className="block px-4 py-2.5 text-sm font-sans-body hover:bg-muted transition-colors"
-              >
-                Subscription
-              </Link>
-              <button
-                onClick={handleSignOut}
-                className="block w-full text-left px-4 py-2.5 text-sm font-sans-body hover:bg-muted transition-colors border-t border-border"
-              >
-                Sign out
-              </button>
-            </div>
-          </>
+        ) : (
+          <span className="w-9 h-9 border border-border flex items-center justify-center">
+            <User size={20} strokeWidth={1.5} />
+          </span>
         )}
-      </div>
-    );
-  };
+      </button>
+
+      {menuOpen && (
+        <>
+          <div
+            className="fixed inset-0 z-40"
+            onClick={() => setMenuOpen(false)}
+          />
+          <div className="absolute right-0 top-12 z-50 w-52 bg-background border border-border shadow-sm">
+            {user ? (
+              <>
+                <div className="px-4 py-3 border-b border-border">
+                  <p className="text-sm font-sans-body font-medium truncate">
+                    {profile?.first_name} {profile?.last_name}
+                  </p>
+                  <p className="text-xs text-muted-foreground font-sans-body truncate">
+                    {user.email}
+                  </p>
+                </div>
+                <Link
+                  to="/account"
+                  onClick={() => setMenuOpen(false)}
+                  className="block px-4 py-2.5 text-sm font-sans-body hover:bg-muted transition-colors"
+                >
+                  Member panel
+                </Link>
+                <Link
+                  to="/account/subscription"
+                  onClick={() => setMenuOpen(false)}
+                  className="block px-4 py-2.5 text-sm font-sans-body hover:bg-muted transition-colors"
+                >
+                  Subscription
+                </Link>
+                {isAdmin && (
+                  <Link
+                    to="/admin"
+                    onClick={() => setMenuOpen(false)}
+                    className="block px-4 py-2.5 text-sm font-sans-body hover:bg-muted transition-colors border-t border-border"
+                  >
+                    Admin panel
+                  </Link>
+                )}
+                <button
+                  onClick={handleSignOut}
+                  className="block w-full text-left px-4 py-2.5 text-sm font-sans-body hover:bg-muted transition-colors border-t border-border"
+                >
+                  Sign out
+                </button>
+              </>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  onClick={() => setMenuOpen(false)}
+                  className="block px-4 py-2.5 text-sm font-sans-body hover:bg-muted transition-colors"
+                >
+                  Sign in
+                </Link>
+                <Link
+                  to="/signup"
+                  onClick={() => setMenuOpen(false)}
+                  className="block px-4 py-2.5 text-sm font-sans-body hover:bg-muted transition-colors"
+                >
+                  Create account
+                </Link>
+                <Link
+                  to="/admin"
+                  onClick={() => setMenuOpen(false)}
+                  className="block px-4 py-2.5 text-sm font-sans-body hover:bg-muted transition-colors border-t border-border"
+                >
+                  Admin login
+                </Link>
+              </>
+            )}
+          </div>
+        </>
+      )}
+    </div>
+  );
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border">
@@ -132,13 +161,12 @@ const Navbar = () => {
           >
             <Instagram size={22} strokeWidth={1.5} />
           </a>
-          <div className="hidden lg:block">
-            <AccountBlock />
-          </div>
+          <AccountBlock />
         </div>
 
         {/* Mobile Hamburger */}
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center gap-4">
+          <AccountBlock />
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <button aria-label="Open menu" className="text-foreground hover:text-primary transition-colors">
