@@ -161,13 +161,12 @@ const Navbar = () => {
           >
             <Instagram size={22} strokeWidth={1.5} />
           </a>
-          <div className="hidden lg:block">
-            <AccountBlock />
-          </div>
+          <AccountBlock />
         </div>
 
         {/* Mobile Hamburger */}
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center gap-4">
+          <AccountBlock />
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <button aria-label="Open menu" className="text-foreground hover:text-primary transition-colors">
