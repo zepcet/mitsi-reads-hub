@@ -73,7 +73,7 @@ const Checkout = () => {
       await supabase
         .from("profiles")
         .update({
-          subscription_plan: selectedPlan.plan,
+          subscription_plan: selectedPlan.plan as Profile["subscription_plan"],
           subscription_type: "individual",
           subscription_status: "active",
           updated_at: new Date().toISOString(),
