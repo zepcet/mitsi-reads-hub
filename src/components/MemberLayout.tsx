@@ -1,7 +1,7 @@
 import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import { LayoutDashboard, User, CreditCard, BookOpen, Sparkles, LogOut, ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import Footer from "@/components/Footer";
 import { useAuth } from "@/context/AuthContext";
 import { cn } from "@/lib/utils";
 
