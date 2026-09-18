@@ -4,6 +4,7 @@ import { Check, ChevronRight, CreditCard, Lock, ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { supabase } from "@/integrations/supabase/client";
+import type { Profile } from "@/types/database";
 import { toast } from "sonner";
 
 const plans = [
